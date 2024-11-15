@@ -1,8 +1,5 @@
 ### Project Documentation
-
-#### Group Name and Last Names:
-
-**Group Name:** Blackjack Simulation with Bet AI  
+**Group Name:** deck-tacticus
 **Members:** Julius Burlet, Keanu Koelewijn  
 
 ### Summary Table:
