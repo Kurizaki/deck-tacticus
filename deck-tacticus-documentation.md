@@ -1,59 +1,67 @@
-# Project Documentation
+### Project Documentation
 
-☝️ All text sections marked with a ✍️ can be deleted once you have filled out the respective sections.
+#### Group Name and Last Names:
 
-✍️ Your group name and last names
+**Group Name:** Blackjack Simulation with Bet AI  
+**Members:** Julius Burlet, Keanu Koelewijn  
 
-| Date  | Version | Summary                                                  |
-| ----- | ------- | -------------------------------------------------------- |
-|       | 0.0.1   | ✍️ Each time you work on the project, add a new row here and describe in *one* sentence what you accomplished. |
-|       | ...     |                                                          |
-|       | 1.0.0   |                                                          |
+### Summary Table:
 
-## 1 Inform
+| Date       | Version | Summary                                                         |
+| ---------- | ------- | --------------------------------------------------------------- |
+| 2024-11-15 | 0.0.1   | Initial setup, requirements for simulation and Bet AI defined.  |
+
+## 1. Inform
 
 ### 1.1 Your Project
 
-✍️ Describe your project in a concise sentence.
+We are building a Blackjack simulation with a card counting algorithm and Bet AI. The simulation allows theoretical gameplay, which can later integrate the Bet AI for enhanced decision-making.
 
 ### 1.2 User Stories
 
-| US-№ | Priority       | Type  | Description                       |
-| ---- | -------------- | ----  | --------------------------------- |
-| 1    |                |       | As a 🤷‍♂️, I want 🤷‍♂️ so that 🤷‍♂️. |
-| ...  |                |       |                                   |
-
-✍️ Each User Story has an integer number (1, 2, 3, etc.), a priority (Must or Can?), and a type (Functional, Quality, Boundary). The User Story itself follows this format: *As a 🤷‍♂️, I want 🤷‍♂️ so that 🤷‍♂️*.
+| US-№ | Priority | Type       | Description                                                                                      |
+| ---- | -------- | ---------- | ------------------------------------------------------------------------------------------------ |
+| 1    | Must     | Functional | As a **player**, I want to simulate Blackjack games to test strategies.                          |
+| 2    | Must     | Functional | As a **developer**, I want to implement a card counting algorithm to track the deck.             |
+| 3    | Must     | Functional | As a **player**, I want the simulation to support variable deck configurations.                  |
+| 4    | Must     | Functional | As a **player**, I want Bet AI to recommend bet sizes based on the game state.                   |
+| 5    | Can      | Functional | As a **player**, I want the AI to optimize my moves (Hit, Stand, Double, etc.) in a later phase. |
 
 ### 1.3 Test Cases
 
-| TC-№ | Initial State | Input  | Expected Output   |
-| ---- | ------------- | ------ | ----------------- |
-| 1.1  |               |        |                   |
-| ...  |               |        |                   |
-
-✍️ The number follows the format `N.m`, where `N` is the number of the User Story the test case covers, and `m` starts at `1` and increments upwards. Example: The third test case covering the second User Story would have the number `2.3`.
+| TC-№ | Initial State          | Input                               | Expected Output                                                 |
+| ---- | ---------------------- | ----------------------------------- | --------------------------------------------------------------- |
+| 1.1  | Empty game simulation  | Initialize game with 6 decks        | Game initialized with correct deck composition.                 |
+| 1.2  | Cards dealt            | Player and dealer receive cards     | Correct cards dealt to both parties; initial totals calculated. |
+| 2.1  | Deck initialized       | Cards played in sequence            | Card counting value updates accurately.                         |
+| 3.1  | Bet AI connected       | Provide game state                  | Bet AI returns valid bet recommendation based on state.         |
+| 4.1  | Full simulation        | Run a simulated game without AI     | Game runs correctly with accurate rules and results.            |
+| 4.2  | Simulation with Bet AI | Run simulation with betting enabled | Bet recommendations adjust dynamically based on game state.     |
 
 ### 1.4 Diagrams
 
-✍️ Here, you can include PAPs, Use Case diagrams, Gantt charts, or similar visual aids.
+- **System Flow Diagram:** Outlines the data flow between simulation, card counting, and Bet AI modules.  
+- **Gantt Chart:** Tracks simulation development, card counting implementation, and Bet AI integration.  
+- **Architecture Diagram:** Modular view of Blackjack simulation, card counting logic, and Bet AI.  
 
-## 2 Plan
+## 2. Plan
 
-| AP-№ | Deadline | Responsible | Description      | Planned Time |
-| ---- | -------- | ----------- | ---------------- | ------------ |
-| 1.A  |          |             |                  |              |
-| ...  |          |             |                  |              |
+| AP-№ | Deadline   | Responsible | Description                                                          | Planned Time |
+| ---- | ---------- | ----------- | -------------------------------------------------------------------- | ------------ |
+| 1.A  | 2024-11-01 | Team        | Research Blackjack rules and card counting strategies.               | 4 hours      |
+| 1.B  | 2024-11-05 | Keanu      | Implement basic Blackjack rules and game simulation.                 | 8 hours      |
+| 2.A  | 2024-11-12 | Julius      | Test and refine simulation for rule accuracy.                        | 6 hours      |
+| 3.A  | 2024-11-15 | Team       | Integrate Bet AI into simulation for bet recommendations.            | 8 hours      |
+| 4.A  | 2024-11-20 | Team        | Run simulated games with and without Bet AI.                         | 6 hours      |
+| 5.A  | 2024-11-25 | Team        | Document findings and prepare for next phase (move optimization AI). | 4 hours      |
 
-Total: 
+**Total Planned Time:** 36 hours
 
-✍️ The number follows the format `N.m`, where `N` is the number of the User Story the work package relates to, and `m` starts from `A` and continues alphabetically. Example: The third work package related to the second User Story would have the number `2.C`.
+## 3. Decide
 
-✍️ A work package should take approximately 45 minutes for one person. The total number of work packages should roughly correspond to: `Number of R-sessions` × `Number of group members` × `4`. For example, if three people are working on a project with two planned R-sessions, you should aim for `2` × `3` × `4` = `24` work packages. If you realize you don’t have enough work packages, think of additional "Can" User Stories for Section 1.2.
-
-## 3 Decide
-
-✍️ Document your decisions and assumptions regarding your User Stories and implementation here.
+- **Simulation:** Core gameplay mechanics must align with Blackjack rules and allow flexible deck configurations.  
+- **Card Counting Algorithm:** The simulation will include a Hi-Lo counting system for tracking deck state.  
+- **Bet AI Integration:** Bet recommendations will dynamically adjust based on the game state and card count.
 
 ## 4 Implement
 
