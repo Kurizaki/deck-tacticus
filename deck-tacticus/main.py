@@ -157,11 +157,22 @@ class Game:
 
     def update_count(self, card):
         """Updates the running count based on the card dealt."""
-        pass  # Logic to update the card counting system
+        self.count += COUNT_VALUES[card.rank]
 
     def deal_initial_cards(self, player, dealer):
         """Deals initial two cards to player and dealer."""
-        pass  # Logic to deal initial cards
+        # Deal the first card to player and dealer
+        player.hand.add_card(self.deck.deal_card())
+        self.update_count(player.hand.cards[-1])
+
+        dealer.hand.add_card(self.deck.deal_card())
+        self.update_count(dealer.hand.cards[-1])
+
+        # Deal the second card to player and dealer (dealer's is hidden)
+        player.hand.add_card(self.deck.deal_card())
+        self.update_count(player.hand.cards[-1])
+
+        dealer.hand.add_card(self.deck.deal_card())
 
     def play_round(self):
         """Plays a single round of Blackjack."""
