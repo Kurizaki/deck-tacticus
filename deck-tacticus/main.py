@@ -1,8 +1,17 @@
 import random
 from typing import List
 
-CARD_VALUES = {}
-COUNT_VALUES = {}
+
+CARD_VALUES = {
+    '2': 2, '3': 3, '4': 4, '5': 5, '6': 6,
+    '7': 7, '8': 8, '9': 9, '10': 10,
+    'J': 10, 'Q': 10, 'K': 10, 'A': 11
+}
+COUNT_VALUES = {
+    '2': 1, '3': 1, '4': 1, '5': 1, '6': 1,
+    '7': 0, '8': 0, '9': 0, '10': -1,
+    'J': -1, 'Q': -1, 'K': -1, 'A': -1
+}
 
 
 class Card:
@@ -56,19 +65,23 @@ class Hand:
         self.aces = 0  # Number of aces in the hand
 
     def add_card(self, card):
-        """Adds a card to the hand and adjusts for aces."""
-        pass  # Logic to add a card and adjust for aces
+        self.cards.append(card)
+        self.value += card.value
+        if card.rank == 'A':
+            self.aces += 1
+        self.adjust_for_ace()
 
     def adjust_for_ace(self):
-        """Adjusts the hand value if there are aces and the total is over 21."""
-        pass  # Logic to adjust the value for aces
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
+
 
     def is_busted(self):
-        """Checks if the hand is busted."""
-        pass  # Logic to check if hand value exceeds 21
+        return self.value > 21
 
     def __str__(self):
-        pass  # Return a string representation of the hand
+        return ', '.join(str(card) for card in self.cards)
 
 
 class Player:
@@ -77,14 +90,40 @@ class Player:
     def __init__(self, name="Player"):
         self.name = name
         self.hand = Hand()
+        self.balance = 1000  # Starting balance; adjust as needed
 
     def make_bet(self):
         """Makes a bet (placeholder for betting logic)."""
-        pass  # Logic for placing a bet
+        # Implement betting logic here, e.g., deduct bet from balance
+        bet = 10  # Default bet amount
+        # Add logic to check if the player has enough balance
+        return bet
 
     def play(self, deck, dealer_card):
-        """Player's turn logic (can be overridden for AI players)."""
-        pass  # Logic for player's actions during their turn
+        """Player's turn logic allowing the player to decide their move."""
+        print(f"\nDealer's visible card: {dealer_card}")
+        print(f"{self.name}'s hand: {self.hand} (Value: {self.hand.value})")
+
+        while True:
+            if self.hand.is_busted():
+                print(f"{self.name} busts with {self.hand.value}!")
+                break
+            elif self.hand.value == 21 and len(self.hand.cards) == 2:
+                print(f"{self.name} has Blackjack!")
+                break
+
+            # Prompt the player for their action
+            action = input("Do you want to [h]it or [s]tand? ").lower()
+            if action == 'h':
+                card = deck.deal_card()
+                self.hand.add_card(card)
+                print(f"\nYou drew: {card}")
+                print(f"{self.name}'s hand: {self.hand} (Value: {self.hand.value})")
+            elif action == 's':
+                print(f"{self.name} stands with {self.hand.value}.")
+                break
+            else:
+                print("Invalid input. Please enter 'h' to hit or 's' to stand.")
 
 
 class Dealer(Player):
@@ -95,7 +134,17 @@ class Dealer(Player):
 
     def play(self, deck, dealer_card=None):
         """Dealer's turn logic."""
-        pass  # Logic for dealer's actions during their turn
+        print(f"\nDealer's hand: {self.hand} (Value: {self.hand.value})")
+        while self.hand.value < 17:
+            card = deck.deal_card()
+            self.hand.add_card(card)
+            print(f"Dealer hits: {card}")
+            print(f"Dealer's hand: {self.hand} (Value: {self.hand.value})")
+            if self.hand.is_busted():
+                print("Dealer busts!")
+                break
+        else:
+            print(f"Dealer stands with {self.hand.value}.")
 
 
 class Game:
