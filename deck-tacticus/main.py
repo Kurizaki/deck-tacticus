@@ -159,11 +159,35 @@ class Game:
 
     def play_round(self):
         """Plays a single round of Blackjack."""
-        pass  # Logic to play a round
+        player = Player()
+        dealer = Dealer()
+        self.deal_initial_cards(player, dealer)
+
+        # Show initial hands
+        print(f"{player.name}'s hand: {player.hand}")
+        print(f"Dealer shows: {dealer.hand.cards[0]}")
+
+        # Player's turn
+        player.play(self.deck, dealer.hand.cards[0])
+
+        # Dealer's turn if player hasn't busted
+        if not player.hand.is_busted():
+            dealer.play(self.deck)
+
+        # Determine the outcome
+        self.determine_winner(player, dealer)
+
 
     def determine_winner(self, player, dealer):
         """Determines and announces the winner."""
-        pass  # Logic to determine the winner of the round
+        if player.hand.is_busted():
+            print("Dealer wins!")
+        elif dealer.hand.is_busted() or player.hand.value > dealer.hand.value:
+            print(f"{player.name} wins!")
+        elif player.hand.value < dealer.hand.value:
+            print("Dealer wins!")
+        else:
+            print("Push! It's a tie.")
 
 
 def main():
