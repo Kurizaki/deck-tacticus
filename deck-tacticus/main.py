@@ -1,4 +1,5 @@
 import random
+from typing import List
 
 CARD_VALUES = {}
 COUNT_VALUES = {}
@@ -21,22 +22,30 @@ class Deck:
 
     def __init__(self, num_decks=1):
         self.num_decks = num_decks
-        self.cards = []
+        self.cards: list[Card] = []
         self.build_deck()
         self.shuffle()
 
     def build_deck(self):
         """Builds the deck with the specified number of decks."""
-        pass  # Logic to create the deck of cards
+        self.cards = []
+        for i in range(self.num_decks):
+            for suit in self.suits:
+                for rank in self.ranks:
+                    self.cards.append(Card(rank, suit))
 
     def shuffle(self):
         """Shuffles the deck."""
-        pass  # Logic to shuffle the deck
+        random.shuffle(self.cards)
 
     def deal_card(self):
         """Deals a single card from the deck."""
-        pass  # Logic to deal a card
-
+        if self.cards:
+            first_card = self.cards[0]
+            self.cards.pop(0)
+            return first_card
+        else:
+            return None
 
 class Hand:
     """Represents a hand of cards for a player or dealer."""
