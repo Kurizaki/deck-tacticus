@@ -1,21 +1,17 @@
 import random
 
-# Constants for card values (you can define them later)
 CARD_VALUES = {}
 COUNT_VALUES = {}
 
 
 class Card:
     """Represents a single playing card."""
-
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
-        self.value = None  # To be defined based on CARD_VALUES
-
+        self.value = self.value = CARD_VALUES[self.rank]
     def __str__(self):
-        pass  # Return a string representation of the card
-
+        return f"{self.rank}{self.suit}"
 
 class Deck:
     """Represents a shoe containing multiple decks."""
