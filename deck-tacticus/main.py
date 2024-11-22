@@ -62,7 +62,7 @@ class Hand:
     def __init__(self):
         self.cards = []
         self.value = 0
-        self.aces = 0  # Number of aces in the hand
+        self.aces = 0
 
     def add_card(self, card):
         self.cards.append(card)
@@ -90,13 +90,11 @@ class Player:
     def __init__(self, name="Player"):
         self.name = name
         self.hand = Hand()
-        self.balance = 1000  # Starting balance; adjust as needed
+        self.balance = 1000
 
     def make_bet(self):
         """Makes a bet (placeholder for betting logic)."""
-        # Implement betting logic here, e.g., deduct bet from balance
-        bet = 10  # Default bet amount
-        # Add logic to check if the player has enough balance
+        bet = 10
         return bet
 
     def play(self, deck, dealer_card):
@@ -112,7 +110,6 @@ class Player:
                 print(f"{self.name} has Blackjack!")
                 break
 
-            # Prompt the player for their action
             action = input("Do you want to [h]it or [s]tand? ").lower()
             if action == 'h':
                 card = deck.deal_card()
@@ -152,8 +149,8 @@ class Game:
 
     def __init__(self, num_decks=1):
         self.deck = Deck(num_decks)
-        self.count = 0  # Running count for card counting
-        self.true_count = 0  # True count adjusted by decks remaining
+        self.count = 0
+        self.true_count = 0
 
     def update_count(self, card):
         """Updates the running count based on the card dealt."""
@@ -168,7 +165,7 @@ class Game:
         dealer.hand.add_card(self.deck.deal_card())
         self.update_count(dealer.hand.cards[-1])
 
-        # Deal the second card to player and dealer (dealer's is hidden)
+        # Deal the second card to player and dealer (dealer is hidden)
         player.hand.add_card(self.deck.deal_card())
         self.update_count(player.hand.cards[-1])
 
@@ -180,18 +177,17 @@ class Game:
         dealer = Dealer()
         self.deal_initial_cards(player, dealer)
 
-        # Show initial hands
         print(f"{player.name}'s hand: {player.hand}")
         print(f"Dealer shows: {dealer.hand.cards[0]}")
 
-        # Player's turn
+        # Player turn
         player.play(self.deck, dealer.hand.cards[0])
 
-        # Dealer's turn if player hasn't busted
+        # Dealer turn
         if not player.hand.is_busted():
             dealer.play(self.deck)
 
-        # Determine the outcome
+        # outcome
         self.determine_winner(player, dealer)
 
 
