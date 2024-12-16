@@ -44,9 +44,7 @@ We are building a comprehensive Blackjack simulation with integrated card counti
 
 ### 1.4 Diagrams
 
-- **System Flow Diagram:** Shows how the simulation, card counting, and Bet AI modules interact.
-- **Gantt Chart:** Tracks completion of user stories (work packages) over time.
-- **Architecture Diagram:** Depicts the modular structure of environment, cards, counting, and AI.
+![Screenshot 2024-12-16 at 21-01-59 rn_image_picker_lib_temp_eec37155-d926-4915-8754-f8a4c995c433 jpg (JPEG Image 1920 × 1440 pixels) — Scaled (76%)](https://github.com/user-attachments/assets/89512fe4-acf4-4703-bf40-cb89a981a34b)
 
 ## 2. Plan
 
