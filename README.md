@@ -1,4 +1,4 @@
-# Setup Windows
+# Setup
 
 ## Dependencies
 
