@@ -62,11 +62,20 @@ We are building a comprehensive Blackjack simulation with integrated card counti
 
 ## 3. Decide
 
-- Develop the basic simulation (US-1) before advanced AI (US-4).
-- Use the Hi-Lo counting method (US-2).
-- Support multi-deck configurations from the start (US-3).
-- Choose PyTorch + CUDA for Bet AI training (US-4).
-- Move optimization (US-5) is postponed until the betting system is proven.
+15.11.2024:
+We defined the project's goals, success criteria, and requirements for the game simulation, and we began the initial planning and task allocation. We decided to prioritize the development of the basic simulation before the Bet-AI.
+
+22.11.2024:
+We completed the implementation of basic Blackjack rules, multi-deck games, and a console-based interface for testing. Additionally, we began developing the Bet AI and decided to use CUDA with PyTorch for better performance.
+
+29.11.2024:
+We started working on the Bet AI model and training it on Julius’s server, leading to a slight delay due to setting up the environment. We decided to use Julius's server for training, as it offers better performance with GPU support.
+
+06.12.2024:
+We completed the training of the Bet AI model and began simulating games under various conditions. We worked on checking the plausibility of bet recommendations and identified some inconsistencies to correct.
+
+13.12.2024:
+We completed the simulation of games, verification of bet recommendations, and error corrections. Our next step involves documenting personal reflections for the Mahara portfolio. No delays or new decisions were made this week.
 
 ## 4. Implement
 
