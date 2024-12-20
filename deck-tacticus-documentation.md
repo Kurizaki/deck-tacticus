@@ -114,7 +114,7 @@ All critical user story-related tests have passed.
 
 **Learning Report:** (Link pending)
 
-- Keanu
+- [Keanu](https://portfolio.bbbaden.ch/view/view.php?t=56106228e8a82b2935a4)
 
 - Julius
 
