@@ -1,2 +1,36 @@
-# deck-tacticus
-A cutting-edge blackjack AI designed to analyze cards through screen capture, count decks, and provide optimal gameplay strategies using advanced machine learning techniques like linear regression and reinforcement learning. Perfect for mastering the game with precision and intelligence.
+# Setup Windows
+
+## Dependencies
+
+- Python 2.12.8
+- pytorch (with CUDA support)
+
+  !!!Important for Windows users, you have to install the CUDA Toolkit to run everything via your NVIDIA GPU!!!
+- numpy
+- pandas
+- gym
+
+## Anaconda
+
+Download and install Anaconda
+
+There is a deck-tacticus-env.yml import this to a new environment in anaconda, and you should be ready to go.
+
+Create environment via console: `conda env create -f deck-tacticus-env.yml`
+
+Activate environment via console: `conda activate deck-tacticus`
+
+You should be ready to go.
+
+## Run the different scrips
+
+You can run files via a runner, or via console with `python file-name.py`
+
+
+`agent.py` Trains a new agent
+
+`blackjack_game.py` Tests the model in a real world like scenario.
+
+`intepret_count.py` You want to try it in the real world? Run this.
+
+
