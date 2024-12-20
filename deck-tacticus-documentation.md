@@ -116,7 +116,7 @@ All critical user story-related tests have passed.
 
 - [Keanu](https://portfolio.bbbaden.ch/view/view.php?t=56106228e8a82b2935a4)
 
-- Julius
+- [Julius](https://portfolio.bbbaden.ch/view/view.php?t=c3f7ac2d319489740758)
 
 ## 7. Project Report History
 
