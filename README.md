@@ -3,7 +3,7 @@
 ## Dependencies
 
 - Python 2.12.8
-- pytorch (with CUDA support)
+- pytorch ([with CUDA support](https://pytorch.org/)) You can copy the required pip install command from here
 
   !!!Important for Windows users, you have to install the CUDA Toolkit to run everything via your NVIDIA GPU!!!
 - numpy
