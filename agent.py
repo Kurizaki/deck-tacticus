@@ -16,7 +16,7 @@ action_size = 5        # Only 5 bet actions (0-4) corresponding to bets of 1-5 u
 hidden_size = 128
 learning_rate = 1e-4
 gamma = 1.0            # Each episode is essentially one step
-num_episodes = 300000
+num_episodes = 350_000  # Increase the number of episodes for better results
 
 # Exploration parameters
 epsilon_start = 1.0
@@ -84,8 +84,8 @@ def train():
         epsilon = max(epsilon_end, epsilon * epsilon_decay)
 
         # Print progress every 1000 episodes
-        if episode % 1000 == 0:
-            avg_reward = sum(total_rewards[-1000:]) / 1000
+        if episode % 10000 == 0:
+            avg_reward = sum(total_rewards[-10000:]) / 10000
             print(f"Episode {episode}, Average Reward: {avg_reward:.4f}, Epsilon: {epsilon:.4f}")
 
     # Save the trained model

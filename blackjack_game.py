@@ -117,9 +117,9 @@ def main():
             logfile.close()
 
         game_profits.append(total_profit)
-
-        # Print results every 100 games
+        
         if (game + 1) % 100 == 0:
+            # Print results every game
             print(f"Game {game+1}: Profit/Loss = {total_profit} units")
 
     # After all games, print some statistics
@@ -133,6 +133,8 @@ def main():
     print(f"Median profit: {median_profit:.2f} units")
     print(f"Highest profit: {highest_profit} units")
     print(f"Lowest profit: {lowest_profit} units")
+
+    return average_profit  # Return average profit for compatibility with auto_train_and_test
 
 if __name__ == '__main__':
     main()
