@@ -8,7 +8,7 @@ def auto_train_and_test():
     models_dir = "Models"
     os.makedirs(models_dir, exist_ok=True)
 
-    iterations = 10
+    iterations = 50
 
     for iteration in range(iterations):
         print(f"Starting training iteration {iteration + 1}...")
