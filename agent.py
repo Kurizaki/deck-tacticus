@@ -16,7 +16,7 @@ action_size = 5        # Only 5 bet actions (0-4) corresponding to bets of 1-5 u
 hidden_size = 128
 learning_rate = 1e-4
 gamma = 1.0            # Each episode is essentially one step
-num_episodes = 350_000  # Increase the number of episodes for better results
+num_episodes = 250_000  # Increase the number of episodes for better results
 
 # Exploration parameters
 epsilon_start = 1.0
