@@ -147,13 +147,11 @@ def main():
     
     return average_profit  # Return average profit for compatibility with auto_train_and_test
 
-if __name__ == '__main__':
-    main()
-
 
 # ============================================================
 # Entry Point
 # ============================================================
 
 if __name__ == '__main__':
-    train()
+    main()
+
